@@ -1,3 +1,11 @@
+schedules:
+- cron: '0 12 * * 0'
+  displayName: Weekly Sunday build
+  branches:
+    include:
+    - main
+  always: true
+
 parameters:
 - name: image_type
   displayName: Build Agent Image
@@ -27,7 +35,7 @@ parameters:
 - name: update_type
   displayName: 'Update vmss (VM Scale Set) or galleryvm (Gallery VM Image) ?'
   type: string
-  default: galleryvm
+  default: vmss
   values:
   - galleryvm
   - vmss
